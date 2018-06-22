@@ -43,11 +43,11 @@
                         <p>Would you compromise your happiness for the success of the relationship?</p>
                     </label>
                     <select class="form-control" id="questionOne">
-                        <option>1 Strongly Disagree</option>
+                        <option>1</option>
                         <option>2</option>
                         <option>3</option>
                         <option>4</option>
-                        <option>5 Strongly Agree</option>
+                        <option>5</option>
                     </select>
                 </div>
 
@@ -58,11 +58,11 @@
                         <p>Do you think celebrating Valentine’s Day is corny?</p>
                     </label>
                     <select class="form-control" id="questionTwo">
-                        <option>1 Strongly Disagree</option>
+                        <option>1</option>
                         <option>2</option>
                         <option>3</option>
                         <option>4</option>
-                        <option>5 Strongly Agree</option>
+                        <option>5</option>
                     </select>
                 </div>
 
@@ -72,11 +72,11 @@
                         <p>Do you have to know all of my friends?</p>
                     </label>
                     <select class="form-control" id="questionThree">
-                        <option>1 Strongly Disagree</option>
+                        <option>1</option>
                         <option>2</option>
                         <option>3</option>
                         <option>4</option>
-                        <option>5 Strongly Agree</option>
+                        <option>5</option>
                     </select>
                 </div>
 
@@ -86,11 +86,11 @@
                         <p>Is it fine for a partner to use the toilet with the door open?</p>
                     </label>
                     <select class="form-control" id="questionFour">
-                        <option>1 Strongly Disagree</option>
+                        <option>1</option>
                         <option>2</option>
                         <option>3</option>
                         <option>4</option>
-                        <option>5 Strongly Agree</option>
+                        <option>5</option>
                     </select>
                 </div>
 
@@ -100,11 +100,11 @@
                         <p>Do you think past relationship secrets should always be kept hidden?</p>
                     </label>
                     <select class="form-control" id="questionFive">
-                        <option>1 Strongly Disagree</option>
+                        <option>1</option>
                         <option>2</option>
                         <option>3</option>
                         <option>4</option>
-                        <option>5 Strongly Agree</option>
+                        <option>5</option>
                     </select>
                 </div>
 
@@ -114,11 +114,11 @@
                         <p>After a break up, would you ask for your gifts back?</p>
                     </label>
                     <select class="form-control" id="questionSix">
-                        <option>1 Strongly Disagree</option>
+                        <option>1</option>
                         <option>2</option>
                         <option>3</option>
                         <option>4</option>
-                        <option>5 Strongly Agree</option>
+                        <option>5</option>
                     </select>
                 </div>
 
@@ -128,11 +128,11 @@
                         <p>Would you feel insecure if I spent a lot of time at work?</p>
                     </label>
                     <select class="form-control" id="questionSeven">
-                        <option>1 Strongly Disagree</option>
+                        <option>1</option>
                         <option>2</option>
                         <option>3</option>
                         <option>4</option>
-                        <option>5 Strongly Agree</option>
+                        <option>5</option>
                     </select>
                 </div>
 
@@ -142,11 +142,11 @@
                         <p> If you’re having a bad day, would you want me to leave you alone?</p>
                     </label>
                     <select class="form-control" id="questionEight">
-                        <option>1 Strongly Disagree</option>
+                        <option>1</option>
                         <option>2</option>
                         <option>3</option>
                         <option>4</option>
-                        <option>5 Strongly Agree</option>
+                        <option>5</option>
                     </select>
                 </div>
 
@@ -157,11 +157,11 @@
                             you can’t see yet, would you blindly trust me and jump?</p>
                     </label>
                     <select class="form-control" id="questionNine">
-                        <option>1 Strongly Disagree</option>
+                        <option>1</option>
                         <option>2</option>
                         <option>3</option>
                         <option>4</option>
-                        <option>5 Strongly Agree</option>
+                        <option>5</option>
                     </select>
                 </div>
 
@@ -171,11 +171,11 @@
                         <p>Would you ever say sorry to me even if it’s not your fault?</p>
                     </label>
                     <select class="form-control" id="questionTen">
-                        <option>1 Strongly Disagree</option>
+                        <option>1</option>
                         <option>2</option>
                         <option>3</option>
                         <option>4</option>
-                        <option>5 Strongly Agree</option>
+                        <option>5</option>
                     </select>
                 </div>
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" id="submit">
@@ -191,7 +191,7 @@
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
-                            <div class="modal-body">
+                            <div id = "match-body" class="modal-body">
                              
                             </div>
                             <div class="modal-footer">
@@ -208,9 +208,7 @@
     </div>
 
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
-</body>
 
-</html>
 
 
 <script type="text/javascript">
@@ -220,7 +218,7 @@
         var newFriends = {
             name: $("#formGroupExampleInput").val().trim(),
             photo: $("#formGroupExampleInput2").val().trim(),
-            scores: [$("#questionOne").val().trim(), $("#questionTwo").val().trim(), $("#questionThree").val()
+            score: [$("#questionOne").val().trim(), $("#questionTwo").val().trim(), $("#questionThree").val()
                 .trim(), $("#questionFour").val().trim(), $("#questionFive").val().trim(), $(
                     "#questionSix").val().trim(), $("#questionSeven").val().trim(), $("#questionEight")
                 .val().trim(), $("#questionNine").val().trim(), $("#questionTen").val().trim()
@@ -248,7 +246,7 @@
                 $("#questionNine").val();
                 $("#questionTen").val();
                 
-                $(".modal").html(data);
+                $("#match-body").html(data);
 
 
             });
@@ -256,3 +254,7 @@
 
     });
 </script>
+
+</body>
+
+</html>

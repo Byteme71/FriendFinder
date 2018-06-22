@@ -10,10 +10,11 @@ module.exports = function (app) {
 
 
     app.post("/api/friends", function (req, res) {
-        friendsList.push(req.body);
+        var newFriend = req.body;
+        friendsList.push(newFriend);
         res.json(true);
 
-        var newScore = frindsList.score;
+        var newScore = newFriend.score;
 
         var newArray = [];
 
@@ -39,8 +40,8 @@ module.exports = function (app) {
 
 
 
-        res.send("<h1>" + newFriendMatchName + "</h1>")
-        res.send("<img>" + newFriendPhoto + "</img>")
+        res.send("<h1>' " + newFriendMatchName + " ' </h1>" + "<img src = ' " + newFriendPhoto + " ' > ");
+      
 
     });
 
