@@ -1,16 +1,18 @@
-$.get("/survey" + searchedCharacter, function (data) {
-    console.log(data);
-    if (data) {
-        $("#stats").show();
-        $("#name").text(data.name);
-        $("#role").text(data.role);
-        $("#age").text(data.age);
-        $("#force-points").text(data.forcePoints);
+var path = require("path");
 
-        //display survey page
-    }
+module.exports = function (app) {
 
-});
+    app.get("/", function (req, res) {
+        res.sendFile(path.join(__dirname, "../public/home.html"));
+    });
 
-///catch all route to home.html displays home page
+    app.get("/survey", function (req, res) {
+        res.sendFile(path.join(__dirname, "../public/survey.html"));
+    });
 
+    app.get("*", function (req, res) {
+        res.sendFile(path.join(__dirname, "../public/home.html"));
+    });
+
+
+}

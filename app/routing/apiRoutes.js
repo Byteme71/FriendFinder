@@ -1,26 +1,47 @@
-$.get("/api/friends" + searchedCharacter, function (data) {
-    console.log(data);
-    if (data) {
-        $("#stats").show();
-        $("#name").text(data.name);
-        $("#role").text(data.role);
-        $("#age").text(data.age);
-        $("#force-points").text(data.forcePoints);
-    }
-});
+var friendsList = require("../data/friends.js");
 
-$("#add-btn").on("click", function (event) {
-    event.preventDefault();
-    var newCharacter = {
-        name: $("#name").val().trim(),
-        role: $("#role").val().trim(),
-        age: $("#age").val().trim(),
-        forcePoints: $("#force-points").val().trim()
-    };
-    $.post("/api/friends", newCharacter)
-        .then(function (data) {
-            console.log("add.html", data);
-            alert("Adding character...");
-            //incoming survey result and compatibility logic, save data to friends.js in an array of objects
-        });
-});
+
+module.exports = function (app) {
+
+
+    app.get("/api/friends", function (req, res) {
+        res.json(friendsList);
+    });
+
+
+    app.post("/api/friends", function (req, res) {
+        friendsList.push(req.body);
+        res.json(true);
+
+        var newScore = frindsList.score;
+
+        var newArray = [];
+
+        for (var i =0; i < friendsList.length -1; i++){
+            var difference = 0;
+            for (var j = 0; j < newScore.length; j++){
+                difference += Math.abs(newScore[j] - friendsList[i].score[j]);
+            }
+            newArray.push(difference);
+        }
+
+        var lowestScore = newArray[0];
+
+        for(x = 0; x < newArray.length; x++){
+            if (newArray[x] < lowestScore){
+                lowestScore = newArray[x]
+            }
+        }
+
+        var newFriendMatch = newArray.indexOf(lowestScore);
+        var newFriendMatchName = friendsList[newFriendMatch].name;
+        var newFriendPhoto = friendsList[newFriendMatch].photo;
+
+
+
+        res.send("<h1>" + newFriendMatchName + "</h1>")
+        res.send("<img>" + newFriendPhoto + "</img>")
+
+    });
+
+};
